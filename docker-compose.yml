@@ -1,0 +1,18 @@
+wordpress:
+ image: wordpress
+ links:
+  - mariadb:mysql
+ environment:
+  - WORDPRESS_DB_PASSWORD=TdMyEaq09!
+ ports:
+  - "192.168.148.5:8088:80"
+ volumes:
+  - ./html:/var/www/html
+mariadb:
+ image: mariadb
+ environment:
+  - MYSQL_ROOT_PASSWORD=TdMyEaq09!
+  - MYSQL_DATABASE=wordpress
+ volumes:
+  - ./database:/var/lib/mysql
+
